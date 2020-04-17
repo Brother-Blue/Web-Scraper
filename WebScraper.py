@@ -28,7 +28,7 @@ def monster_search(desc, loc):
 
 
 def search(description='engineer', location='New York City'):
-    print(monster_search(description, location))
+    save_file(monster_search(description, location))
 
 
 def save_file(s_name="", s_title="", s_company="", s_location=""):
@@ -36,6 +36,8 @@ def save_file(s_name="", s_title="", s_company="", s_location=""):
 
     save_to_path = "~/Desktop"
     file_name = input("Save file as: ")
+    if (file_name == ""):
+        file_name = "output"
     save_file_name = os.path.join(save_to_path, file_name + ".csv")
     d_frame.to_csv(save_file_name, index=False, encoding="utf-8")
 
